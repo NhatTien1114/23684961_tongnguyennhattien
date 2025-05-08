@@ -69,36 +69,38 @@
                 const phone = $('#phone').val().trim();
                 const email = $('#email').val().trim();
 
-                const nameRegex = /^([A-Z][a-z]+)(\s[A-Z][a-z]+)*$/;
+                // Biểu thức kiểm tra
+                const nameRegex = /^([A-ZÀ-Ỹ][a-zà-ỹ]+)(\s[A-ZÀ-Ỹ][a-zà-ỹ]+)*$/;
                 const usernameRegex = /^[a-zA-Z0-9]+$/;
                 const phoneRegex = /^0\d{9}$/;
                 const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
                 if (!nameRegex.test(fullname)) {
-                    alert('Họ và tên phải viết hoa chữ cái đầu và không chứa ký tự đặc biệt.');
+                    alert('❌ Họ và tên phải viết hoa chữ cái đầu và không chứa ký tự đặc biệt.');
                     return false;
                 }
 
                 if (!usernameRegex.test(username)) {
-                    alert('Tên đăng nhập chỉ được chứa chữ và số.');
+                    alert('❌ Tên đăng nhập chỉ được chứa chữ và số.');
                     return false;
                 }
 
                 if (!phoneRegex.test(phone)) {
-                    alert('Số điện thoại phải bắt đầu bằng số 0 và có 10 chữ số.');
+                    alert('❌ Số điện thoại phải bắt đầu bằng số 0 và có 10 chữ số.');
                     return false;
                 }
 
                 if (!emailRegex.test(email)) {
-                    alert('Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com');
+                    alert('❌ Email phải kết thúc bằng @gmail.com và đúng định dạng.');
                     return false;
                 }
 
-                alert('Đăng ký thành công!');
-                this.submit(); // tiếp tục gửi biểu mẫu nếu tất cả hợp lệ
+                alert('✅ Đăng ký thành công!');
+                this.submit(); // Gửi biểu mẫu nếu hợp lệ
             });
         });
     </script>
+
 
 </head>
 
