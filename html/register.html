@@ -59,6 +59,46 @@
             background-color: #6b1e1e;
         }
     </style>
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(e) {
+                e.preventDefault();
+
+                const fullname = $('#fullname').val().trim();
+                const username = $('#username').val().trim();
+                const phone = $('#phone').val().trim();
+                const email = $('#email').val().trim();
+
+                const nameRegex = /^([A-Z][a-z]+)(\s[A-Z][a-z]+)*$/;
+                const usernameRegex = /^[a-zA-Z0-9]+$/;
+                const phoneRegex = /^0\d{9}$/;
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+                if (!nameRegex.test(fullname)) {
+                    alert('Họ và tên phải viết hoa chữ cái đầu và không chứa ký tự đặc biệt.');
+                    return false;
+                }
+
+                if (!usernameRegex.test(username)) {
+                    alert('Tên đăng nhập chỉ được chứa chữ và số.');
+                    return false;
+                }
+
+                if (!phoneRegex.test(phone)) {
+                    alert('Số điện thoại phải bắt đầu bằng số 0 và có 10 chữ số.');
+                    return false;
+                }
+
+                if (!emailRegex.test(email)) {
+                    alert('Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com');
+                    return false;
+                }
+
+                alert('Đăng ký thành công!');
+                this.submit(); // tiếp tục gửi biểu mẫu nếu tất cả hợp lệ
+            });
+        });
+    </script>
 
 </head>
 
